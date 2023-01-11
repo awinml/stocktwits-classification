@@ -52,11 +52,11 @@ The optimizer hyperparamerters that were taken are shown below:
 | SGD           | 0.01                     |                 | -              | -               | -               | -                  |
 
 - **Training loss** <br>
-  <img src = "plots/FinBERT_Train_Loss.png">
+  <img src = "plots/Train_Loss.png">
 
 - **Validation loss** 
   <br>
-  <img src = "plots/FinBERT_Validation_Loss.png">
+  <img src = "plots/Validation_Loss.png">
 
 The rate of convergence of the AdamW optimizer is the fastest.
 
