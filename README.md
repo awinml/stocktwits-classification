@@ -1,6 +1,5 @@
 # StockTwits Sentiment Analysis
 
-
 ## Data:
 
 The Stocktwits dataset consists of 64,51,067 StockTwits from the [StockTwits](https://stocktwits.com/) platform and each post has been categorised by a polarity.
@@ -18,16 +17,15 @@ The dataset contains two columns: <br>
 
 #### **RoBERTa:**
 
-- A baseline was created using the BERT model. Training the model with an **Adam optimizer with learning rate of 3e-5** for **6 epochs** yielded an **Accuracy of 86% and an F1 Score of 0.86.**
+- Training the model with an **Adam optimizer with learning rate of 3e-5** for **6 epochs** yielded an **Accuracy of 67% and an F1 Score of 0.46.**
 
 #### **DistilBERT**
 
-- The DistilBERT model was fine tuned on the data. Training the model with an **Adam optimizer with learning rate of 3e-5**, yielded an **Accuracy of 82% and an F1 Score of 0.81.**
+- The DistilBERT model was fine tuned on the data. Training the model with an **Adam optimizer with learning rate of 3e-5**, yielded an **Accuracy of 74% and an F1 Score of 0.52.**
 
 #### **FINBERT**
 
-- The FINBERT model was fine tuned on the data.Training the model with an **Adam optimizer** with learning rate of 5e-5, for **3 epochs** yielded an **Accuracy of 90.91% and an F1 Score of 0.91.**
-
+- The FINBERT model was fine tuned on the data.Training the model with an **Adam optimizer** with learning rate of 5e-5, for **6 epochs** yielded an **Accuracy of 82% and an F1 Score of 0.68.**
 
 ## Results:
 
@@ -39,30 +37,28 @@ The results from all the text classification models have been summarized below:
 | ---------- | -------- | ------------------ |
 | RoBERTa    | 0.67     | 0.46               |
 | DistilBERT | 0.74     | 0.52               |
-| FinBERT    | 82%      | 0.68               |
-
+| FinBERT    | 0.82     | 0.68               |
 
 ## Optimizers Comparison:
 
 The optimizer hyperparamerters that were taken are shown below:
 
-| Optimizer     | $\gamma$ (Learning Rate)  | $\eta$ Momentum  | $\alpha$ Alpha  | $\beta_1$ Beta1  | $\beta_2$ Beta2  | $\epsilon$ Epsilon  |
-| ------------- | ---------------------- | --------------- | -------------- | --------------- | --------------- | ------------------ |
-| AdamW         | 3e-5                   | 0.01            | 0.99            | 0.9             | 0.999           | 1e-5               |
-| RMSprop       | 0.01                   | 0.01            | 0.99           | -               | -               | -                  |
-| Adagrad       | 3e-5                   |                 | -              | -               | -               | -                  |
-| SGD(Momentum) | 3e-5                   | 0.001           | -              | -               | -               | -                  |
-| SGD           | 0.01                   |                 | -              | -               | -               | -                  |
+| Optimizer     | $\gamma$ (Learning Rate) | $\eta$ Momentum | $\alpha$ Alpha | $\beta_1$ Beta1 | $\beta_2$ Beta2 | $\epsilon$ Epsilon |
+| ------------- | ------------------------ | --------------- | -------------- | --------------- | --------------- | ------------------ |
+| AdamW         | 3e-5                     | 0.01            | 0.99           | 0.9             | 0.999           | 1e-5               |
+| RMSprop       | 0.01                     | 0.01            | 0.99           | -               | -               | -                  |
+| Adagrad       | 3e-5                     |                 | -              | -               | -               | -                  |
+| SGD(Momentum) | 3e-5                     | 0.001           | -              | -               | -               | -                  |
+| SGD           | 0.01                     |                 | -              | -               | -               | -                  |
 
--
-**Training loss** <br>
-<img src = "plots/FinBERT_Train_Loss.png">
+- **Training loss** <br>
+  <img src = "plots/FinBERT_Train_Loss.png">
 
-**Comparing the Validation loss of all optimizers** for the fine tuned FinBERT model
-<br>
-<img src = "plots/FinBERT_Validation_Loss.png">
+- **Validation loss** 
+  <br>
+  <img src = "plots/FinBERT_Validation_Loss.png">
 
 The rate of convergence of the AdamW optimizer is the fastest.
 
-We can conclude the order of convergence of the optimizers:
+We can conclude that the order of convergence of the optimizers:
 AdamW > RMSprop > NAG > SGD(Momentum) > SGD.
